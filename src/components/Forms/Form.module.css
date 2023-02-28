@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 150px;
+    padding: 10px;
+    background-color: gray;
+    
+}
+
+.container input {
+    border-radius: 5px;
+    height: 20px;
+}
+
+.container button {
+    border-radius: 5px;
+    height: 20px;
+    background-color: darkslategray;
+    color: white;
+    padding: 0 10 0 10px;
+    font-size: 10px;
+    border: 0px;
+}
+
+.error{
+    color: red;
+}

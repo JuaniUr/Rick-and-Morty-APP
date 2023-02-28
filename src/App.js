@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
+import Form from './components/Forms/Form.jsx';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -25,16 +26,16 @@ function App() {
   const onClose = (id) => {
     // [ 4, 5, 7]
     setCharacters(characters.filter((char) => char.id !== id));
-    setShowCards(false);
-    console.log(Object.values(characters).length);
-    
   };
+
+  const location = useLocation();
 
   return (
     <div className="App" style={{ padding: "25px" }}>
-      <NavBar onSearch={onSearch} />
+      {location.pathname !== '/' && <NavBar onSearch={onSearch} /> }
       <hr />
       <Routes>
+        <Route exact path="/" element= {<Form/>}/>
         <Route path="/About" element={<About />} />
         <Route
           path="/Home"
